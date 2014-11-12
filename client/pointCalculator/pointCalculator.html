@@ -1,0 +1,25 @@
+<template name="pointCalculator">
+    <form role="form">
+        <div class="form-group">
+            <label for="proteins">Protéines</label>
+            <input type="number" class="form-control nutriment" placeholder="0" id="proteins" name="proteins">
+        </div>
+        <div class="form-group">
+            <label for="glucides">Glucides</label>
+            <input type="number" class="form-control nutriment" placeholder="0" id="glucides" name="glucides">
+        </div>
+        <div class="form-group">
+            <label for="lipides">Lipides</label>
+            <input type="number" class="form-control nutriment" placeholder="0" id="lipides" name="lipides">
+        </div>
+        <div class="form-group">
+            <label for="fibres">Fibres</label>
+            <input type="number" class="form-control nutriment" placeholder="0" id="fibres" name="fibres">
+        </div>
+        <div class="form-group">
+            <label for="poid">Poids en grammes</label>
+            <input type="number" class="form-control nutriment" placeholder="poid en grammes" id="poid" value="{{poid}}">
+        </div>
+        <h2>Points pour {{poid}} g : {{points}}</h2>
+    </form>
+</template>
