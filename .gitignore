@@ -27,3 +27,8 @@ yarn-error.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# Go binaries
+main
+server
+pointCalculator

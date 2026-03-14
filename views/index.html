@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Point Calculator 4</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    <style>
+      /* Additional simple styles for native elements replacement */
+      .app-footer {
+        flex-direction: column;
+        align-items: center;
+      }
+      .native-widget {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 15px;
+      }
+      .native-input {
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 2px solid #e2e8f0;
+        font-family: 'Outfit', sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Point Calculator <span>4</span></h1>
+            <p>Calculateur de points nutritionnels moderne</p>
+        </header>
+        
+        <main class="app-content">
+            <form id="calc-form" 
+                  hx-post="/calculate" 
+                  hx-trigger="input" 
+                  hx-target="#points-result"
+                  role="form">
+                <div class="form-group">
+                    <label for="proteins">Protéines</label>
+                    <input type="number" step="any" class="form-control nutriment" placeholder="0" id="proteins" name="proteins">
+                </div>
+                <div class="form-group">
+                    <label for="glucides">Glucides</label>
+                    <input type="number" step="any" class="form-control nutriment" placeholder="0" id="glucides" name="glucides">
+                </div>
+                <div class="form-group">
+                    <label for="lipides">Lipides</label>
+                    <input type="number" step="any" class="form-control nutriment" placeholder="0" id="lipides" name="lipides">
+                </div>
+                <div class="form-group">
+                    <label for="fibres">Fibres</label>
+                    <input type="number" step="any" class="form-control nutriment" placeholder="0" id="fibres" name="fibres">
+                </div>
+                <div class="form-group">
+                    <label for="poid">Poids en grammes</label>
+                    <input type="number" step="any" class="form-control nutriment" placeholder="poids en grammes" id="poid" name="poid" value="100">
+                </div>
+                
+                <div id="points-result">
+                    {{template "result" .}}
+                </div>
+            </form>
+        </main>
+        
+        <footer class="app-footer">
+            <div class="native-widget">
+              <label for="datepicker">Date: </label>
+              <input class="native-input" id="datepicker" type="date">
+            </div>
+            
+            <div class="native-widget">
+              <label for="tags">Tags: </label>
+              <input class="native-input" list="tag-options" id="tags" placeholder="search for tag">
+              <datalist id="tag-options">
+                  {{range .Tags}}
+                  <option value="{{.}}">
+                  {{end}}
+              </datalist>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+{{define "result"}}
+<h2>Points pour {{.Poid}} g : {{.Points}}</h2>
+{{end}}
