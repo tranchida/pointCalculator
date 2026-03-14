@@ -5,6 +5,11 @@
  * Time: 04:55 AM
  * To change this template use Tools | Templates.
  */
-Template.datepicker.rendered = function() {
-    $("#datepicker").datepicker($.datepicker.regional["fr-CH"]);
-};
+import { Template } from 'meteor/templating';
+import { $ } from 'meteor/jquery';
+
+import './datepicker.html';
+
+Template.datepicker.onRendered(function() {
+    $( "#datepicker" ).datepicker($.datepicker.regional[ "fr-CH" ]);
+});

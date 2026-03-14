@@ -1,2 +1,29 @@
-.idea
-.meteor
+# Meteor
+.meteor/local
+.meteor/platforms
+.meteor/cordova-plugins
+.meteor/bundler-cache
+
+# Dependencies
+node_modules/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+settings.json
+!settings-example.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db

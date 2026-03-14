@@ -5,6 +5,8 @@
  * Time: 05:56 AM
  * To change this template use Tools | Templates.
  */
-Meteor.startup(function() {
+import { Meteor } from 'meteor/meteor';
+
+Meteor.startup(() => {
     // code to run on server at startup
 });
