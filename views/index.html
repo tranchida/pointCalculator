@@ -11,25 +11,6 @@
     <script src="https://unpkg.com/htmx.org@1.9.11"></script>
     <style>
       /* Additional simple styles for native elements replacement */
-      .app-footer {
-        flex-direction: column;
-        align-items: center;
-      }
-      .native-widget {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 15px;
-      }
-      .native-input {
-        width: 100%;
-        padding: 8px 12px;
-        border-radius: 8px;
-        border: 2px solid #e2e8f0;
-        font-family: 'Outfit', sans-serif;
-      }
     </style>
 </head>
 <body>
@@ -71,23 +52,6 @@
                 </div>
             </form>
         </main>
-        
-        <footer class="app-footer">
-            <div class="native-widget">
-              <label for="datepicker">Date: </label>
-              <input class="native-input" id="datepicker" type="date">
-            </div>
-            
-            <div class="native-widget">
-              <label for="tags">Tags: </label>
-              <input class="native-input" list="tag-options" id="tags" placeholder="search for tag">
-              <datalist id="tag-options">
-                  {{range .Tags}}
-                  <option value="{{.}}">
-                  {{end}}
-              </datalist>
-            </div>
-        </footer>
     </div>
 </body>
 </html>

@@ -46,10 +46,7 @@ func main() {
 
 	// Routes
 	e.GET("/", func(c echo.Context) error {
-		// Provide default tags for the datalist
-		tags := []string{"ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"}
 		return c.Render(http.StatusOK, "index.html", map[string]interface{}{
-			"Tags":   tags,
 			"Poid":   100.0,
 			"Points": 0.0,
 		})
